@@ -21,7 +21,6 @@
     </style>
 </head>
 <body>
-
     <h2>파일 다운로드</h2>
     <p>아래 정보를 입력하시면 파일을 다운로드할 수 있습니다.</p>
 
@@ -29,6 +28,34 @@
         <input type="text" id="name" placeholder="이름 입력" required> <br>
         <input type="text" id="department" placeholder="학과 입력" required> <br>
         <input type="text" id="studentId" placeholder="학번 입력" required> <br>
-        <input type="date" id="dob" required> <br>
         <input type="email" id="email" placeholder="이메일 입력" required> <br>
-        <button type="submit">제출
+        <button type="submit">제출</button>
+    </form>
+
+    <br>
+
+    <a id="downloadBtn" href="https://violin0112.github.io/-/인터넷 보안과 프라이버시 2024년도 기출문제.pdf" download>
+        <button>파일 다운로드</button>
+    </a>
+
+    <script>
+        document.getElementById("infoForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // 기본 제출 동작 방지
+
+            // 모든 입력값 가져오기
+            var name = document.getElementById("name").value;
+            var department = document.getElementById("department").value;
+            var studentId = document.getElementById("studentId").value;
+            var email = document.getElementById("email").value;
+
+            // 입력값 검증 (공백 확인)
+            if (name && department && studentId && email) {
+                alert("입력이 완료되었습니다. 파일을 다운로드할 수 있습니다!");
+                document.getElementById("downloadBtn").style.display = "block"; // 버튼 표시
+            } else {
+                alert("모든 정보를 입력해주세요!");
+            }
+        });
+    </script>
+</body>
+</html>
