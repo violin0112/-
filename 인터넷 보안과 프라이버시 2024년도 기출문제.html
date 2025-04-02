@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 다운로드</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        form { display: inline-block; text-align: left; }
+        input { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #downloadBtn { display: none; }
+    </style>
+</head>
+<body>
+    <h2>파일 다운로드를 위해 정보를 입력하세요</h2>
+    <form id="infoForm">
+        <input type="text" id="name" placeholder="이름" required>
+        <input type="text" id="department" placeholder="학과" required>
+        <input type="text" id="studentId" placeholder="학번" required>
+        <input type="date" id="dob" placeholder="생년월일" required>
+        <input type="email" id="email" placeholder="이메일 주소" required>
+        <button type="submit">제출</button>
+    </form>
+    
+    <a id="downloadBtn" href="인터넷 보안과 프라이버시 2024년도 기출문제.pdf" download>파일 다운로드</a>
+    
+    <script>
+        document.getElementById("infoForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let department = document.getElementById("department").value;
+            let studentId = document.getElementById("studentId").value;
+            let dob = document.getElementById("dob").value;
+            let email = document.getElementById("email").value;
+            
+            if (name && department && studentId && dob && email) {
+                document.getElementById("downloadBtn").style.display = "block";
+                alert("정보가 제출되었습니다. 파일을 다운로드하세요.");
+            }
+        });
+    </script>
+</body>
+</html>
